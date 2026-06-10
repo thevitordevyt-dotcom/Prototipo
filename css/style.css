@@ -17,21 +17,20 @@
 
   --radius: 20px;
 }
-
 /* =========================
    DARK MODE
 ========================= */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primaria: #1c7ac8;
-    --secundaria: #008fe1;
-    --escuro: #19bfe1;
+    --primaria: #0077ff;
+    --secundaria: #00a2ff;
+    --escuro: #007cf0;
 
-    --claro: #ffffff;
+    --claro: #000000;
     --texto: #ffffff;
 
-    --fundo-card: rgba(1, 0, 0, 0.9);
+    --fundo-card: rgba(0, 0, 0, 0.9);
     --fundo-header: rgba(0, 0, 0, 0.9);
     --fundo-form: #000000;
 
@@ -39,7 +38,6 @@
     --radius: 20px;
   }
 }
-
 /* =========================
    RESET
 ========================= */
@@ -60,10 +58,33 @@ html {
 .um {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; 
-  background: linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)), url("../img/bjv.png");
+  flex-direction: column;
+  background:
+    linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)),
+    url("../img/bjv.png");
   background-size: 2500px;
   text-align: center;
+}
+body.dark-mode.um {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(30, 30, 30, 0.95)),
+    url("../img/bjv.png");
+  color: #f4f4f4;
+}
+body.dark-mode .sistemanavegacao {
+  background-color: rgba(15, 15, 15, 0.95);
+}
+body.dark-mode footer {
+  background: #111;
+  color: #f4f4f4;
+}
+body.dark-mode a {
+  color: #f4f4f4;
+  background-color: #0077cc;
+  border-color: #444;
+}
+body.dark-mode .sistemabotao {
+  background-color: #223344;
 }
 header {
   width: 100%;
@@ -114,96 +135,102 @@ footer {
   gap: 50px;
   margin-top: 260px;
 }
-.Textos{
-color: #fefefe;
+.Textos {
+  color: #fefefe;
 }
-.Frasedeefeito-logo{
-flex-grow: 1;
-display: flex;
-justify-content: center;
-align-items: flex-end;
-padding-bottom: 40px;
-
+.Frasedeefeito-logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 40px;
 }
-.dois{
-background: linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)), url("../img/bjv.png");
+.dois {
+  background:
+    linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)),
+    url("../img/bjv.png");
   background-size: 2500px;
   text-align: center;
 }
-.tres{
-background: linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)), url("../img/bjv.png");
+.tres {
+  background:
+    linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)),
+    url("../img/bjv.png");
   background-size: 2500px;
   text-align: center;
 }
-.Quatro{
+.Quatro {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; 
-  background: linear-gradient(rgba(2, 254, 149, 0.85), rgba(135, 137, 138, 0.91))
+  flex-direction: column;
+  background: linear-gradient(
+    rgba(2, 254, 149, 0.85),
+    rgba(135, 137, 138, 0.91)
+  );
 }
-.quadradoum{
-background-color: darkgreen;
-padding: 1px;
-margin: 120px;
-border-radius: 20px;
-justify-content: center;
-text-align: center;
+.quadradoum {
+  background-color: darkgreen;
+  padding: 1px;
+  margin: 120px;
+  border-radius: 20px;
+  justify-content: center;
+  text-align: center;
 }
-.quadradodois{
-background-color: rgb(255, 213, 0);
-padding: 1px;
-margin: 120px;
-border-radius: 20px;
-justify-content: center;
-text-align: center;
-}
-
-.quadradotres{
-background-color: rgb(13, 0, 255);
-padding: 1px;
-margin: 120px;
-border-radius: 20px;
-justify-content: center;
-text-align: center;
+.quadradodois {
+  background-color: rgb(255, 213, 0);
+  padding: 1px;
+  margin: 120px;
+  border-radius: 20px;
+  justify-content: center;
+  text-align: center;
 }
 
-.center{
-text-align: center;
+.quadradotres {
+  background-color: rgb(13, 0, 255);
+  padding: 1px;
+  margin: 120px;
+  border-radius: 20px;
+  justify-content: center;
+  text-align: center;
 }
 
-.sistemabotao{
-background-color: #005f99;
-text-align: center;
+.center {
+  text-align: center;
 }
 
-a{
-    color: var(--texto);
-    text-decoration: none;
-    padding: 1px;
-    background-color: #0098e3;
-    border-radius: 9px;
-    border: solid;
-    border-color: rgb(237, 237, 237);
-    border-width: 3px;
-    text-align: center;
-  }
-  a:hover {
-    transform: scale(1.3);
+.sistemabotao {
+  background-color: #005f99;
+  text-align: center;
 }
-.barra{
+
+a {
+  color: var(--texto);
+  text-decoration: none;
+  padding: 1px;
+  background-color: #0098e3;
+  border-radius: 9px;
+  border: solid;
+  border-color: rgb(237, 237, 237);
+  border-width: 3px;
+  text-align: center;
+}
+a:hover {
+  transform: scale(1.3);
+}
+.barra {
   display: flex;
   width: 100%;
-  max-width: 500px; 
-  margin: 0 auto; 
+  max-width: 500px;
+  margin: 0 auto;
   border-radius: 120px;
 }
-.ajudaxtm{
-text-decoration: none;
-border-width: 1px;
-padding: 1px none;
-width: 3px;
+.ajudaxtm {
+  text-decoration: none;
+  border-width: 1px;
+  padding: 1px none;
+  width: 3px;
 }
-.Fraselogo{
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-color: #ffffff;
+.Fraselogo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #ffffff;
 }
