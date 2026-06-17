@@ -1,46 +1,52 @@
-/* =========================
-   LIGHT MODE
-========================= */
 :root {
   --primaria: #4da8ff;
   --secundaria: #0077cc;
   --escuro: #005f99;
 
   --claro: #818080;
-  --texto: #fefefe;
+  --texto: #222222; 
+  --texto-inverso: #ffffff; 
 
+  --fundo-geral: #0b6ddd92; 
   --fundo-card: rgba(103, 98, 98, 0.951);
   --fundo-header: rgba(14, 249, 46, 0.734);
   --fundo-form: #ffffff;
+  --fundo-gradiente: linear-gradient(rgba(2, 254, 149, 0.85), rgba(135, 137, 138, 0.91)); 
 
-  --sombra: 0 8px 30px rgb(255, 255, 255);
+  --sombra: 0 8px 30px rgba(0, 0, 0, 0.15); 
 
   --radius: 20px;
+  --btn-bg: #0098e3;
+  --btn-text: #ffffff;
+  --btn-border: #edf0f5;
 }
-/* =========================
-   DARK MODE
-========================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primaria: #0077ff;
-    --secundaria: #00a2ff;
-    --escuro: #007cf0;
+body.dark {
+  --primaria: #0077ff;
+  --secundaria: #00a2ff;
+  --escuro: #007cf0;
 
-    --claro: #000000;
-    --texto: #ffffff;
+  --claro: #1a1a1a; 
+  --texto: #ffffff; 
 
-    --fundo-card: rgba(0, 0, 0, 0.9);
-    --fundo-header: rgba(0, 0, 0, 0.9);
-    --fundo-form: #000000;
+  --fundo-geral: #012b5e92; 
+  --fundo-card: rgba(0, 0, 0, 0.9);
+  --fundo-header: rgba(0, 0, 0, 0.9);
+  --fundo-form: #121212; 
+  --fundo-gradiente: linear-gradient(rgba(1, 100, 60, 0.85), rgba(40, 40, 40, 0.91)); 
 
-    --sombra: 0 8px 30px rgba(0, 0, 0, 0.5);
-    --radius: 20px;
-  }
+  --sombra: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --btn-border: #333333;
 }
-/* =========================
-   RESET
-========================= */
+
+body {
+  background-color: var(--fundo-geral);
+  color: var(--texto);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -52,171 +58,268 @@
 html {
   scroll-behavior: smooth;
 }
-/* =========================
-   BODY
-========================= */
+
+/* BODY PRINCIPAL (INDEX.HTML) */
 .um {
-  min-height: 100vh;
+min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background:
-    linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)),
-    url("../img/bjv.png");
-  background-size: 2500px;
+  background-image: url(../img/bjv.png);
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: contain;    
+  background-color: #051424; 
   text-align: center;
 }
-body.dark-mode.um {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.9), rgba(30, 30, 30, 0.95)),
-    url("../img/bjv.png");
-  color: #f4f4f4;
+
+/* Textos customizados */
+.Textos {
+  color: var(--btn-border);
 }
-body.dark-mode .sistemanavegacao {
-  background-color: rgba(15, 15, 15, 0.95);
+
+/* NAVBAR */
+.sistemanavegacao {
+  background-color: var(--claro);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
 }
-body.dark-mode footer {
-  background: #111;
-  color: #f4f4f4;
+
+.sistemanavegacao a {
+  color: var(--btn-text);
+  text-decoration: none;
+  padding: 11px 16px;
+  background-color: var(--btn-bg);
+  border-radius: 20px;
+  border: solid 3px var(--btn-border);
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
-body.dark-mode a {
-  color: #f4f4f4;
-  background-color: #0077cc;
-  border-color: #444;
+
+.sistemanavegacao a:hover {
+  transform: scale(1.03);
 }
-body.dark-mode .sistemabotao {
-  background-color: #223344;
-}
+
+/* Tamanho do NavBar */
 header {
   width: 100%;
 }
 
+/* Arrumando comportamento do h1 e mudança de cor */
 h1 {
-  margin-top: 600px;
-  padding: 12px;
+  margin-top: 15vh;      
+  padding: 12px 24px;
   text-align: center;
+  color: var(--texto-inverso);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
-.sistemanavegacao {
-  background-color: var(--claro);
-  width: 100%;
-
-  display: flex;
-  justify-content: space-evenly;
-
-  & a {
-    color: var(--texto);
-    text-decoration: none;
-    padding: 11px;
-    background-color: #0098e3;
-    border-radius: 20px;
-    border: solid;
-    border-color: rgb(237, 237, 237);
-    border-width: 5px;
-  }
-  & a:hover {
-    transform: scale(1.3);
-  }
-}
-
+/* Colocando footer no lugar certo e centralizado */
 footer {
   width: 100%;
   background: var(--primaria);
-
-  color: white;
-
+  color: var(--texto-inverso);
   text-align: center;
-
-  padding: 30px;
-
+  padding: 30px 20px;
   display: flex;
-
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  margin-top: 260px;
+  gap: 15px;
+  margin-top: auto;
 }
-.Textos {
-  color: #fefefe;
+
+footer div {
+  min-width: 160px;
 }
-.Frasedeefeito-logo {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 40px;
-}
+
+/* Body secundário (administrativo.html) */
 .dois {
-  background:
-    linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)),
-    url("../img/bjv.png");
-  background-size: 2500px;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  background-color: var(--fundo-geral);
 }
+
+.pedidos {
+  min-height: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--fundo-form);
+  color: var(--texto); 
+}
+/* BODY terceario  (status.html)*/
 .tres {
-  background:
-    linear-gradient(rgba(16, 0, 0, 0.85), rgba(135, 137, 138, 0.91)),
-    url("../img/bjv.png");
-  background-size: 2500px;
+  min-height: 1vh;
+  flex-direction: column;
   text-align: center;
+  background-color: var(--fundo-geral);
 }
+
+/* BODY Quaternário (Termosum.html e termos.html)  */
+.quadradoum,
+.quadradodois,
+.quadradotres {
+  width: min(100%, 720px);
+  padding: 24px 22px;
+  margin: 0 auto;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: var(--sombra);
+}
+
+.quadradoum {
+  background-color: darkgreen;
+}
+.quadradodois {
+  background-color: rgb(255, 213, 0);
+}
+.quadradotres {
+  background-color: rgb(13, 0, 255);
+}
+
+.ajudaxtm {
+  display: inline-block;
+  color: var(--btn-text);
+  text-decoration: none;
+  padding: 10px 18px;
+  background-color: var(--btn-bg);
+  border-radius: 16px;
+  border: solid 3px var(--btn-border);
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.ajudaxtm:hover {
+  transform: scale(1.02);
+}
+
+/* mudando a fonte da letra da página principal */
+.Fraselogo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: var(--texto-inverso);
+}
+
+/* BODY Quaternário (Termosum.html e termos.html) | CONTINUAÇÃO */
 .Quatro {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    rgba(2, 254, 149, 0.85),
-    rgba(135, 137, 138, 0.91)
-  );
-}
-.quadradoum {
-  background-color: darkgreen;
-  padding: 1px;
-  margin: 120px;
-  border-radius: 20px;
-  justify-content: center;
-  text-align: center;
-}
-.quadradodois {
-  background-color: rgb(255, 213, 0);
-  padding: 1px;
-  margin: 120px;
-  border-radius: 20px;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 20px 40px;
+  background: var(--fundo-gradiente); 
 }
 
-.quadradotres {
-  background-color: rgb(13, 0, 255);
-  padding: 1px;
-  margin: 120px;
-  border-radius: 20px;
-  justify-content: center;
-  text-align: center;
+.ajustes {
+  margin-top: 100px;
+  padding: 30px;
+  border: 1px solid var(--texto); 
+  border-radius: 40px;
 }
 
-.center {
-  text-align: center;
+/* BODY/css da quinta tela (ajuda.html) */
+.sistemanavegacaoum {
+  background-color: var(--btn-border);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--texto); 
+  border-radius: 120px;
+  margin-top: auto;
+}
+
+.sistemanavegacaoum a {
+  color: var(--btn-text);
+  text-decoration: none;
+  padding: 11px 16px;
+  background-color: var(--btn-bg);
+  border-radius: 20px;
+  border: solid 3px var(--btn-border);
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.sistemanavegacaoum a:hover {
+  transform: scale(1.03);
 }
 
 .sistemabotao {
-  background-color: #005f99;
-  text-align: center;
+  background-color: var(--btn-bg); 
+  text-decoration: none;
+  padding: 11px 16px;
+}
+.ajustesquatro{
+display: block;
+  margin: 0 auto;       
+  max-width: 1000px;  
+  width: 100%;         
+  height: auto;
+}
+.sidebar{
+width: 150px;
+height: 100dvh;
+background-color: #0077ff;
+color: var(--texto);
+padding: 20px;
+position: fixed;
+}
+.sidebar a{
+display: block;
+color: black;
+text-decoration: none;
+padding: 7px;
+border-radius: 6px;
+transition: 0.3s;
+}
+.siderbar a:hover{
+background-color: #333333;
+
+
 }
 
-a {
-  color: var(--texto);
+
+
+a,
+button {
+  color: var(--btn-text);
   text-decoration: none;
-  padding: 1px;
-  background-color: #0098e3;
+  padding: 10px 16px;
+  background-color: var(--btn-bg);
   border-radius: 9px;
-  border: solid;
-  border-color: rgb(237, 237, 237);
-  border-width: 3px;
+  border: solid 3px var(--btn-border);
   text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
-a:hover {
-  transform: scale(1.3);
+
+a:hover,
+button:hover {
+  transform: scale(1.03);
 }
+
 .barra {
   display: flex;
   width: 100%;
@@ -224,13 +327,51 @@ a:hover {
   margin: 0 auto;
   border-radius: 120px;
 }
-.ajudaxtm {
-  text-decoration: none;
-  border-width: 1px;
-  padding: 1px none;
-  width: 3px;
+
+.center {
+  text-align: center;
 }
-.Fraselogo {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: #ffffff;
+
+.Textosum {
+  color: var(--texto);
+}
+.aleatorio{
+text-align: center;
+flex-direction: column;
+margin-top: 50px;
+}
+.aleatorioum{
+text-align: center;
+flex-direction: column;
+justify-content: center;
+margin-top: 20px;
+} 
+.ajustesquatro{
+ justify-content: center;
+ flex-direction: column;
+ display: flex;
+}
+
+
+
+
+@media (max-width: 768px) {
+  h1 {
+    margin-top: 10vh;
+    font-size: 1.6rem;
+  }
+  .sistemanavegacao {
+    padding: 10px;
+    gap: 8px;
+  }
+  .sistemanavegacao a {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+  footer {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 10px;
+  }
 }
